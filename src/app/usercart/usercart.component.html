@@ -1,0 +1,17 @@
+
+
+<table class="table text-center mx-auto mt-5">
+    <thead>
+        <th>Productname</th>
+        <th>Model</th>
+        <th>Image</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of userCartObj.products">
+            <td>{{product.productname}}</td>
+            <td>{{product.model}}</td>
+            <td><img src={{product.productImage}} width="100 px" alt=""></td>
+        </tr>
+    </tbody>
+</table>
+
