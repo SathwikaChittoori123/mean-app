@@ -7,7 +7,7 @@
         <th>Image</th>
     </thead>
     <tbody>
-        <tr *ngFor="let product of userCartObj.products | paginate: { itemsPerPage: 10, currentPage: p }">
+        <tr *ngFor="let product of userCartObj.products | paginate: { itemsPerPage: 3, currentPage: p }">
             <td>{{product.productname}}</td>
             <td>{{product.model}}</td>
             <td><img src={{product.productImage}} width="100 px" alt=""></td>
