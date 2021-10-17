@@ -1,7 +1,6 @@
 <p class="display-4 text-center text-info m-5">Signup here</p>
 <form #ref="ngForm" (ngSubmit)=" ref.form.valid && onSignup(ref.value)" class="w-75 mx-auto mt-5">
     <div class="form-floating mb-3">
-        <label for="username">Username</label>
         <input type="username"
          class="form-control" 
          id="username"
@@ -11,11 +10,14 @@
             required
              #refusername="ngModel"
               autocomplete="off">
+              <label for="username">Username</label>
         <p class="text-warning" *ngIf="(ref.submitted||refusername.touched)&&refusername.errors?.required">user name required</p>
     </div>
     <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password"#refpassword="ngModel"
+        autocomplete="off" ngModel required>
         <label for="password">Password</label>
+        <p class="text-warning" *ngIf="(ref.submitted||refpassword.touched)&&refpassword.errors?.required">user name required</p>
     </div>
     <div class="form-floating mb-3">
         <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" ngModel>
