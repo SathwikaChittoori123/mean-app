@@ -13,21 +13,18 @@
         </label>
     </div>
     <div class="form-floating mb-3">
+        <label for="username">Username</label>
         <input type="username" class="form-control" id="username" placeholder="name@example.com" name="username"
             ngModel required minlength="5" #refUsername="ngModel" autocomplete="off">
             <Pclass="text-danger" *ngIf="(ref.submitted||refUsername.touched)&&refUsername.errors?.required ">* Username is required</P>
             <Pclass="text-danger" *ngIf="(ref.submitted||refUsername.touched)&&refUsername.errors?.minlength ">* minimum length should be 5</P>
-        <label for="username">Username</label>
+        
     </div>
     <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel required pattern="('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')" #refPassword="ngModel">
         <label for="password">Password</label>
-        <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.required ">* Password is required</P>
-            <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.pattern ">* pattern not matched(At least 8 characters in length
-                Lowercase letters
-                Uppercase letters
-                Numbers
-                Special characters)</P>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel required pattern=".*" #refPassword="ngModel">
+        <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.required ">* Password is required </P>
+            <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.pattern ">* pattern not matched  </P>
     </div>
 
     <button class="btn btn-success" type="submit">Login</button>
