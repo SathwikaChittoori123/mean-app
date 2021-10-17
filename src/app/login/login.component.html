@@ -1,5 +1,5 @@
 <p class="display-4 text-center text-secondary m-5">Login here</p>
-<form #ref="ngForm" (ngSubmit)="ref.form.valid&&onLogin(ref.value)" class="w-75 mx-auto mt-5">
+<form #ref="ngForm" (ngSubmit)="onLogin(ref.value)" class="w-75 mx-auto mt-5">
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="type" id="admin" ngModel value="admin">
         <label class="form-check-label" for="admin">
@@ -13,18 +13,13 @@
         </label>
     </div>
     <div class="form-floating mb-3">
-        <label for="username">Username</label>
         <input type="username" class="form-control" id="username" placeholder="name@example.com" name="username"
-            ngModel required minlength="5" #refUsername="ngModel" autocomplete="off">
-            <Pclass="text-danger" *ngIf="(ref.submitted||refUsername.touched)&&refUsername.errors?.required ">* Username is required</P>
-            <Pclass="text-danger" *ngIf="(ref.submitted||refUsername.touched)&&refUsername.errors?.minlength ">* minimum length should be 5</P>
-        
+            ngModel required>
+        <label for="username">Username</label>
     </div>
     <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel required>
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel required pattern=".*" #refPassword="ngModel">
-        <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.required ">* Password is required </P>
-            <Pclass="text-danger" *ngIf="(ref.submitted||refPassword.touched)&&refUsername.errors?.pattern ">* pattern not matched  </P>
     </div>
 
     <button class="btn btn-success" type="submit">Login</button>
