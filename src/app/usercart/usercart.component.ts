@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
 })
 export class UsercartComponent implements OnInit {
   userCartObj;
+  p=1;
 
   constructor(private  userService:UserService) { }
 
