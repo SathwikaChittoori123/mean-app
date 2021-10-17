@@ -1,9 +1,17 @@
 <p class="display-4 text-center text-info m-5">Signup here</p>
-<form #ref="ngForm" (ngSubmit)="onSignup(ref.value)" class="w-75 mx-auto mt-5">
+<form #ref="ngForm" (ngSubmit)=" ref.form.valid && onSignup(ref.value)" class="w-75 mx-auto mt-5">
     <div class="form-floating mb-3">
-        <input type="username" class="form-control" id="username" placeholder="name@example.com" name="username"
-            ngModel>
         <label for="username">Username</label>
+        <input type="username"
+         class="form-control" 
+         id="username"
+          placeholder="name@example.com" 
+          name="username"
+            ngModel 
+            required
+             #refusername="ngModel"
+              autocomplete="off">
+        <p class="text-warning" *ngIf="(ref.submitted||refusername.touched)&&refusername.errors?.required">user name required</p>
     </div>
     <div class="form-floating mb-3">
         <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel>
